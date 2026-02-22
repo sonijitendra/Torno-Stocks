@@ -1,0 +1,32 @@
+# Development: SQLite, no Postgres
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      PORT: 8080
+      DB_DRIVER: sqlite
+      DATABASE_URL: /data/tinystock.db
+      JWT_SECRET: dev-secret
+      CORS_ORIGINS: "*"
+    volumes:
+      - tinystock-data:/data
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "8501:8501"
+    environment:
+      TINYSTOCK_API_URL: http://localhost:8080
+    depends_on:
+      - backend
+
+volumes:
+  tinystock-data:

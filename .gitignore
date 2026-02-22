@@ -1,0 +1,28 @@
+# Backend
+backend/tinystock.db
+backend/tinystock-api
+backend/tinystock-api.exe
+backend/*.exe
+
+# Frontend
+frontend/__pycache__/
+frontend/.streamlit/
+frontend/*.pyc
+*.pyc
+__pycache__/
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
